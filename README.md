@@ -7,7 +7,7 @@ Ademas, se requieren instalar las siguientes dependencias:
 
 * express
 * mongoose
-* mongodv
+* mongodb
 * dotenv
 * body-parser
 * bcrypt
