@@ -3,23 +3,8 @@ API sobre agregar, actualizar y consultar partidos de futbol.
 
 # Requerimientos
 Se necesita instalar NodeJs (18.16.0)  y NPM (9.5.1).  
-Ademas, se requieren instalar las siguientes dependencias:
+Ademas, se requieren instalar las dependencias con el siguiente comando desde la consola:
 
-* express
-* mongoose
-* mongodb
-* dotenv
-* body-parser
-* bcrypt
-* cookie-session
-* jsonwebtoken
-* winston
-* jest
-* supertest
-* joi
-* cross-env
-
-Se instalan con el siguiente comando en la consola:
 ```
 npm install dependencia
 ```
