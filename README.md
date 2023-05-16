@@ -6,7 +6,7 @@ Se necesita instalar NodeJs (18.16.0)  y NPM (9.5.1).
 Ademas, se requieren instalar las dependencias con el siguiente comando desde la consola:
 
 ```
-npm install dependencia
+npm install
 ```
 
 # Primer paso
