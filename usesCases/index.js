@@ -1,18 +1,11 @@
-// const partido = require('./partidos.js')
+
 const getUser = require('./user.js')
 const getUsuarios = require('./user.js')
 const crearUser = require('./user.js')
 const buscarEmail = require('./user.js')
-// const partidoSchema = require('../models/partido');
-// const aconSchema = require('../models/acontecimiento');
-// const cambiosSchema = require('../models/cambios');
+
 const userSchema = require('../models/user');
 
-// const instancePartido = partido({
-//     dependencies: {
-//         model: partidoSchema
-//     }
-// })
 
 const instanceUser = getUser({
     dependencies: {
@@ -44,17 +37,6 @@ const instanceEmail = buscarEmail({
     }
 })
 
-// const instanceAcon = partido({
-//     dependencies: {
-//         model:aconSchema
-//     }
-// })
-
-// const instanceCambios = partido({
-//     dependencies: {
-//         model: cambiosSchema
-//     }
-// })
 
 module.exports = {
     instanceUser , instanceSaveUser,instanceGetUsers,instanceCrearUsers,instanceEmail
