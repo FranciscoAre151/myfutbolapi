@@ -6,7 +6,7 @@ const partidoSchema = require('../models/partido');
 const aconSchema = require('../models/acontecimiento');
 const cambiosSchema = require('../models/cambios');
 
-const getUser= user.instanceUser({
+const getUser= user.instanceGetUser({
     dependencies: {
         model: userSchema
     }

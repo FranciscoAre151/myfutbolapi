@@ -1,5 +1,5 @@
 
-const instanceUser = ({dependencies}) => async(req) => {
+const instanceGetUser = ({dependencies}) => async(req) => {
     const {model} = dependencies
     return model.findOne({ email: req.body.email });
 }
@@ -30,7 +30,7 @@ const instanceEmail = ({dependencies}) => async(req) => {
 
 
 module.exports = {
-    instanceUser , 
+    instanceGetUser , 
     instanceGetUsers,
     instanceCrearUsers,
     instanceEmail
