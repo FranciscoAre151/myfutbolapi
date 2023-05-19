@@ -78,4 +78,4 @@ module.exports = {
     local,
     visitante,
     equipo
-};
+  }

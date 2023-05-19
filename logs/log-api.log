@@ -106,3 +106,105 @@
 [2023-05-18T11:42:29.127Z] error: Internal server Error
 [2023-05-18T11:42:29.138Z] error: Internal server Error
 [2023-05-18T11:42:29.172Z] error: Email ya registrado
+[2023-05-19T17:00:35.325Z] info: server listening on port 9000
+[2023-05-19T17:03:00.791Z] info: server listening on port 9000
+[2023-05-19T17:03:04.809Z] error: Internal server Error
+[2023-05-19T17:03:04.827Z] error: Internal server Error
+[2023-05-19T17:03:04.875Z] error: Email ya registrado
+[2023-05-19T17:04:22.893Z] info: server listening on port 9000
+[2023-05-19T17:04:26.785Z] error: Internal server Error
+[2023-05-19T17:04:26.803Z] error: Internal server Error
+[2023-05-19T17:20:44.350Z] info: server listening on port 9000
+[2023-05-19T17:20:49.244Z] info: Usuario registrado con exito: {
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$6OyYGrrbASoBX3CnEitAeOmZlSoC01Pqr0zuMnc4xt4j3c4i.8NeS',
+  role: 'admin',
+  _id: new ObjectId("6467aff1963bbb0435edc355"),
+  __v: 0
+}
+[2023-05-19T17:22:04.644Z] info: server listening on port 9000
+[2023-05-19T17:22:49.951Z] error: Email ya registrado
+[2023-05-19T17:23:32.085Z] info: server listening on port 9000
+[2023-05-19T17:26:51.499Z] info: server listening on port 9000
+[2023-05-19T17:26:55.803Z] info: Usuario registrado con exito: {
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$vQEIHo7J3v5aAzWMQxTXIOL.A1Yx2FHTNDkeFLD5M3hhIHCWsMfV.',
+  role: 'admin',
+  _id: new ObjectId("6467b15f97d08caed38967f1"),
+  __v: 0
+}
+[2023-05-19T17:26:56.073Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b15f97d08caed38967f1"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$vQEIHo7J3v5aAzWMQxTXIOL.A1Yx2FHTNDkeFLD5M3hhIHCWsMfV.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:42:53.767Z] info: server listening on port 9000
+[2023-05-19T17:42:58.559Z] info: Usuario registrado con exito: {
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  __v: 0
+}
+[2023-05-19T17:42:58.839Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:43:24.137Z] info: server listening on port 9000
+[2023-05-19T17:43:26.924Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:43:29.470Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:44:51.744Z] info: server listening on port 9000
+[2023-05-19T17:44:54.721Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:44:55.384Z] info: Partido actualizado
+[2023-05-19T17:44:55.647Z] info: Ingreso exitoso: {
+  _id: new ObjectId("6467b5227dacdd899bd8c897"),
+  nombre: 'user22',
+  apellido: 'ap22',
+  email: 'user221@prueba.com',
+  password: '$2b$10$8GXuTjvQX6tDSUk4L.S7pexNFKB8.HHolwR24axGLYjbGmjuRdcA.',
+  role: 'admin',
+  __v: 0
+}
+[2023-05-19T17:44:55.835Z] error: No se pudo actualizar
+[2023-05-19T17:45:27.760Z] info: server listening on port 9000
+[2023-05-19T17:45:38.521Z] info: Se inserto un partido correctamente
+[2023-05-19T17:45:39.503Z] error: Estado no valido

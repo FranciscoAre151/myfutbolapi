@@ -1,4 +1,4 @@
-const useCases = require('../usesCases/index');
+const useCases = require('../usesCases/index.js');
 const logger = require('../logs/logger.js');
 
 async function update(req, res) {

@@ -1,134 +1,112 @@
-getUser = require('./user.js')
-getUsuarios =  require('./user.js')
-crearUser = require('./user.js')
-buscarEmail = require('./user.js')
-const createAcon = require('./partidos.js')
-const createCambio = require('./partidos.js')
-const getPartidos = require('./partidos.js')
-const getPartidoByIdPop = require('./partidos.js')
-const getPartidoById = require('./partidos.js')
-const actualizar = require('./partidos.js')
-const insertar = require('./partidos.js')
-const estado= require('./partidos.js')
-const local= require('./partidos.js')
-const visitante= require('./partidos.js')
-const equipo= require('./partidos.js')
+const user = require('./user.js')
+const partido = require('./partidos.js')
+
 const userSchema = require('../models/user');
 const partidoSchema = require('../models/partido');
 const aconSchema = require('../models/acontecimiento');
 const cambiosSchema = require('../models/cambios');
 
-const instanceUser = getUser({
+const getUser= user.instanceUser({
     dependencies: {
         model: userSchema
     }
 })
 
-const instanceGetUsers = getUsuarios({
+const  getUsuarios = user.instanceGetUsers({
     dependencies: {
         model: userSchema
     }
 })
 
-const instanceSaveUser = guardarUser({
+const  crearUser  = user.instanceCrearUsers({
     dependencies: {
         model: userSchema
     }
 })
 
-const instanceCrearUsers = crearUser({
+const buscarEmail  = user.instanceEmail({
     dependencies: {
         model: userSchema
     }
 })
 
-const instanceEmail = buscarEmail({
-    dependencies: {
-        model: userSchema
-    }
-})
-
-const instanceAcon = createAcon({
+const createAcon  = partido.instanceAcon({
     dependencies: {
         model: aconSchema
     }
 })
 
-const instanceCambio = createCambio({
+const createCambio  = partido.instanceCambio({
     dependencies: {
         model: cambiosSchema
     }
 })
 
-const instanceGetPartidos = getPartidos({
+const getPartidos = partido.instanceGetPartidos({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceGetPartidoPop = getPartidoByIdPop({
+const getPartidoByIdPop  = partido.instanceGetPartidoPop({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceGetPartidoById = getPartidoById({
+const getPartidoById = partido.instanceGetPartidoById({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceActualizar = actualizar({
+const actualizar  = partido.instanceActualizar({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceInsertar = insertar({
+const  insertar = partido.instanceInsertar({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceEstado = estado({
+const estado = partido.instanceEstado({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceLocal = local({
+const local  = partido.instanceLocal({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceVisitante = visitante({
+const visitante= partido.instanceVisitante({
     dependencies: {
         model: partidoSchema
     }
 })
 
-const instanceEquipo = equipo({
+const equipo  = partido.instanceEquipo({
     dependencies: {
         model: partidoSchema
     }
 })
 
 module.exports = {
-    instanceUser , 
-    instanceSaveUser,
-    instanceGetUsers,
-    instanceCrearUsers,
-    instanceEmail,
-    instanceAcon,
-    instanceCambio,
-    instanceGetPartidos,
-    instanceGetPartidoPop,
-    instanceGetPartidoById,
-    instanceActualizar,
-    instanceInsertar,
-    instanceEstado,
-    instanceLocal,
-    instanceVisitante,
-    instanceEquipo
+    getUser, crearUser,getUsuarios,buscarEmail , 
+    getPartidos,
+    insertar,
+    estado,
+    local,
+    visitante,
+    equipo,
+    actualizar,
+    getPartidoById,
+    getPartidoByIdPop,
+    createAcon,
+    createCambio
 }

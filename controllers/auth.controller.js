@@ -10,6 +10,7 @@ async function login(req, res){
         logger.error('Usuario no encontrado')
         return res.status(400).json({ error: 'Usuario no encontrado' });
     }
+    console.log(user)
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword){
         logger.error('Contraseña no valida') 
@@ -44,7 +45,6 @@ async function register(req, res){
 
     const user = await useCases.crearUser(req,password);
     try {
-        const savedUser = await useCases.guardarUser(user);
         res.status(200).json({
             error: null,
             message: 'registrado con exito',

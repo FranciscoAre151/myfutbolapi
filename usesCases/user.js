@@ -1,10 +1,10 @@
 
-const getUser = ({dependencies}) => async function(req){
+const instanceUser = ({dependencies}) => async(req) => {
     const {model} = dependencies
     return model.findOne({ email: req.body.email });
 }
 
-const crearUser = ({dependencies}) => async function(req,pass) {
+const instanceCrearUsers = ({dependencies}) => async(req,pass) => {
     const {model} = dependencies
     const user = new model({
         nombre: req.body.nombre,
@@ -14,21 +14,24 @@ const crearUser = ({dependencies}) => async function(req,pass) {
         password: pass
     });
 
-    return user;
+    return user.save();
 }
 
 
-const getUsuarios = ({dependencies}) => async function() {
+const instanceGetUsers = ({dependencies}) => async() => {
     const {model} = dependencies
     return model.find().select('-__v')
 }
 
-const buscarEmail = ({dependencies}) => async function(req) {
+const instanceEmail = ({dependencies}) => async(req) => {
     const {model} = dependencies
     return model.findOne({ email: req.body.email });
 }
 
 
 module.exports = {
-    getUser, crearUser,getUsuarios,buscarEmail
+    instanceUser , 
+    instanceGetUsers,
+    instanceCrearUsers,
+    instanceEmail
 }
