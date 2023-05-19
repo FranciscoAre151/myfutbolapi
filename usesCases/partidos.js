@@ -1,9 +1,7 @@
-const partidoSchema = require('../models/partido');
-const aconSchema = require('../models/acontecimiento');
-const cambiosSchema = require('../models/cambios');
 
-async function createAcon(req) {
-    const acont = new aconSchema({
+const createAcon = ({dependencies}) => async function(req) {
+    const {model} = dependencies
+    const acont = new model({
         nombre: req.nombre,
         jugador: req.jugador,
         minuto: req.minuto,
@@ -13,8 +11,9 @@ async function createAcon(req) {
     return await acont.save()
 }
 
-async function createCambio(req) {
-    const cambio = new cambiosSchema({
+const createCambio = ({dependencies}) => async function(req) {
+    const {model} = dependencies
+    const cambio = new model({
         entra: req.entra,
         sale: req.sale,
         minuto: req.minuto,
@@ -24,41 +23,50 @@ async function createCambio(req) {
     return await cambio.save()
 }
 
-async function getPartidos() {
-    return partidoSchema.find().select('-__v').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1, _id:0 }).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const getPartidos = ({dependencies}) => async function() {
+    const {model} = dependencies
+    return model.find().select('-__v').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1, _id:0 }).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
-async function getPartidoByIdPop(id) {
-    return partidoSchema.findById(id).populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const getPartidoByIdPop = ({dependencies}) => async function(id) {
+    const {model} = dependencies
+    return model.findById(id).populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
-async function getPartidoById(id) {
-    return partidoSchema.findById(id)
+const getPartidoById = ({dependencies}) => async function(id) {
+    const {model} = dependencies
+    return model.findById(id)
 }
 
-async function actualizar(id, req, cambios,acontecimientos) {
-   await partidoSchema.updateOne({ _id: id }, {estado: req.body.estado, resultado:req.body.resultado, cambios: cambios, acontecimientos: acontecimientos});
+const actualizar = ({dependencies}) => async function(id, req, cambios,acontecimientos) {
+    const {model} = dependencies
+    await model.updateOne({ _id: id }, {estado: req.body.estado, resultado:req.body.resultado, cambios: cambios, acontecimientos: acontecimientos});
 }
 
-async function insertar(req) {
-    const partido = await partidoSchema(req.body);
+const insertar = ({dependencies}) => async function(req) {
+    const {model} = dependencies
+    const partido = await model(req.body);
     await partido.save()
 }
 
-async function estado(estado) {
-    return partidoSchema.find({estado: estado}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const estado = ({dependencies}) => async function(estado) {
+    const {model} = dependencies
+    return model.find({estado: estado}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
-async function local(equipo) {
-    return partidoSchema.find({local: equipo}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const local = ({dependencies}) => async function(equipo) {
+    const {model} = dependencies
+    return model.find({local: equipo}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
-async function visitante(equipo) {
-    return partidoSchema.find({visitante: equipo}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const visitante = ({dependencies}) => async function(equipo) {
+    const {model} = dependencies
+    return model.find({visitante: equipo}).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
-async function equipo(equipo) {
-    return partidoSchema.find({ $or: [ { local: equipo }, { visitante: equipo } ] } ).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
+const equipo = ({dependencies}) => async function(equipo) {
+    const {model} = dependencies
+    return model.find({ $or: [ { local: equipo }, { visitante: equipo } ] } ).select('-__v').select('-_id').populate('acontecimientos',{nombre:1, jugador:1,minuto:1, equipo:1,_id:0}).populate('cambios',{entra:1,sale:1,minuto:1,equipo:1,_id:0})
 }
 
 module.exports = {

@@ -1,4 +1,4 @@
-const useCases = require('../usesCases/partidos');
+const useCases = require('../usesCases/index');
 const logger = require('../logs/logger.js');
 
 async function getPartidos(req, res) {

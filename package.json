@@ -21,6 +21,6 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=dev node index.js",
-    "test": "cross-env NODE_ENV=test jest --silent --verbose  tests/update.test.js"
+    "test": "cross-env NODE_ENV=test jest --silent --verbose  tests/user.test.js"
   }
 }

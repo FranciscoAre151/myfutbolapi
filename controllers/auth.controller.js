@@ -1,4 +1,4 @@
-const useCases = require('../usesCases/user');
+const useCases = require('../usesCases/index');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const logger = require('../logs/logger.js');
