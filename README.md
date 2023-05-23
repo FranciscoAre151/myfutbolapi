@@ -12,7 +12,11 @@ npm install
 # Primer paso
 Ejecutar el siguiente comando desde la consola:
 ```
-node index.js
+npm run build
+```
+Luego,
+```
+node lib/index.js
 ```
 Esta API corre localmente en el puerto 9000.
 
