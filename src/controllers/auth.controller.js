@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import logger from '../logs/logger.js';
 
-async function login(req, res){
+const login = async(req, res) => {
     
     const user = await getUser(req);
     if (!user){ 
@@ -31,7 +31,7 @@ async function login(req, res){
     
 }
 
-async function register(req, res){
+const register = async(req, res) => {
 
     const isEmailExist = await buscarEmail(req);
    
@@ -57,7 +57,7 @@ async function register(req, res){
     }
 }
 
-async function usuarios(req, res) {
+const usuarios = async(req, res) => {
     try {
       const users = await getUsuarios()
       res.json(users)

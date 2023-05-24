@@ -1,23 +1,23 @@
 
-const instanceAcon = ({dependencies}) => async(req) => {
+const instanceAcon = ({dependencies}) => async(acontecimiento) => {
     const {model} = dependencies
     const acont = new model({
-        nombre: req.nombre,
-        jugador: req.jugador,
-        minuto: req.minuto,
-        equipo: req.equipo
+        nombre: acontecimiento.nombre,
+        jugador: acontecimiento.jugador,
+        minuto: acontecimiento.minuto,
+        equipo: acontecimiento.equipo
     });
     
     return await acont.save()
 }
 
-const instanceCambio = ({dependencies}) => async(req) => {
+const instanceCambio = ({dependencies}) => async(camb) => {
     const {model} = dependencies
     const cambio = new model({
-        entra: req.entra,
-        sale: req.sale,
-        minuto: req.minuto,
-        equipo: req.equipo
+        entra: camb.entra,
+        sale: camb.sale,
+        minuto: camb.minuto,
+        equipo: camb.equipo
     });
     
     return await cambio.save()
@@ -38,14 +38,14 @@ const instanceGetPartidoById = ({dependencies}) => async(id) => {
     return model.findById(id)
 }
 
-const instanceActualizar = ({dependencies}) => async(id, req, cambios,acontecimientos) => {
+const instanceActualizar = ({dependencies}) => async(id, body, cambios,acontecimientos) => {
     const {model} = dependencies
-    await model.updateOne({ _id: id }, {estado: req.body.estado, resultado:req.body.resultado, cambios: cambios, acontecimientos: acontecimientos});
+    await model.updateOne({ _id: id }, {estado: body.estado, resultado: body.resultado, cambios: cambios, acontecimientos: acontecimientos});
 }
 
-const instanceInsertar = ({dependencies}) => async(req) => {
+const instanceInsertar = ({dependencies}) => async(body) => {
     const {model} = dependencies
-    const partido = await model(req.body);
+    const partido = await model(body);
     await partido.save()
 }
 

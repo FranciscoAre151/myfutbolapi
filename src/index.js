@@ -1,14 +1,9 @@
-
 import express from 'express';
 import mongoose from "mongoose";
 import bodyParser from 'body-parser';
 import logger from './logs/logger.js';
 import authRoutes  from './routes/auth.js';
 import matchRoutes from './routes/partidos.js';
-import dashboadRoutes from './routes/dashboard.js';
-import verifyToken from './middlewares/validate-token.js';
-import updateRoutes from './routes/update.js';
-import verifyAdmin from './middlewares/validate-admin.js';
 
 const app = express();
 const port = 9000;
@@ -19,8 +14,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/user", authRoutes);
-app.use('/api/dashboard', verifyToken, dashboadRoutes);
-app.use('/api/update', verifyAdmin, updateRoutes);
 app.use("/api/partidos", matchRoutes);
 
 

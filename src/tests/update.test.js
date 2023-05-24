@@ -19,7 +19,7 @@ test('Actualizar partido correctamente', async () => {
     
     const partido = await api.get('/api/partidos/')
     const id = partido.body[0]._id
-    const res = await api.put(`/api/update/${id}`).set('auth-token',token).send(act)
+    const res = await api.put(`/api/partidos/update/${id}`).set('auth-token',token).send(act)
     expect(res.statusCode).toBe(200)
 })
 
@@ -38,7 +38,7 @@ test('No Actualizar partido terminado', async () => {
     const token = useradmin.body.token
     const partido = await api.get('/api/partidos/')
     const id = partido.body[1]._id
-    const res = await api.put(`/api/update/${id}`).set('auth-token',token).send(act)
+    const res = await api.put(`/api/partidos/update/${id}`).set('auth-token',token).send(act)
     expect(res.body.message).toBe('no se pudo actualizar')
 })
 
@@ -50,7 +50,7 @@ test('Token no valido', async () => {
     }
     const partido = await api.get('/api/partidos/')
     const id = partido.body[0]._id
-    const res = await api.put(`/api/update/${id}`).set('auth-token','tokennn').send(act)
+    const res = await api.put(`/api/partidos/update/${id}`).set('auth-token','tokennn').send(act)
     expect(res.statusCode).toBe(500)
 })
 

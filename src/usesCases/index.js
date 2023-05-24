@@ -1,4 +1,16 @@
-import {instanceAcon,instanceCambio,instanceGetPartidos,instanceGetPartidoPop,instanceGetPartidoById,instanceActualizar,instanceInsertar,instanceEstado,instanceLocal,instanceVisitante,instanceEquipo} from './partidos.js'
+import {instanceAcon,
+        instanceCambio,
+        instanceGetPartidos,
+        instanceGetPartidoPop,
+        instanceGetPartidoById,
+        instanceActualizar,
+        instanceInsertar,
+        instanceEstado,
+        instanceLocal,
+        instanceVisitante,
+        instanceEquipo
+        } from './partidos.js'
+        
 import {instanceGetUser,instanceGetUsers,instanceCrearUsers,instanceEmail} from './user.js'
 
 import userSchema from '../models/user';
@@ -97,7 +109,10 @@ const Equipo  = instanceEquipo({
 })
 
 module.exports = {
-    getUser, crearUser,getUsuarios,buscarEmail , 
+    getUser,
+    crearUser,
+    getUsuarios,
+    buscarEmail, 
     getPartidos,
     insertar,
     Estado,

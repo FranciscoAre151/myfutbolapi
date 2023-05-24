@@ -25,6 +25,6 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "start": "cross-env NODE_ENV=dev node lib/index.js --exec",
-    "test": "cross-env NODE_ENV=test jest --silent --verbose lib/tests/user.test.js"
+    "test": "cross-env NODE_ENV=test jest --silent --verbose lib/tests/partidos.test.js"
   }
 }

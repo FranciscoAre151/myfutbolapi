@@ -1,7 +1,17 @@
 import  logger from '../logs/logger.js';
-import {getPartidos,insertar,Estado,local,visitante,Equipo} from '../usesCases/index.js';
+import {getPartidos,
+        insertar,
+        Estado,
+        local,
+        visitante,
+        Equipo,
+        getPartidoById,
+        createAcon,
+        createCambio,
+        getPartidoByIdPop,
+        actualizar} from '../usesCases/index.js';
 
-async function devolverPartidos(req, res) {
+const devolverPartidos = async(req, res) => {
     try {
       const partidos = await getPartidos()
       res.json(partidos)
@@ -12,9 +22,9 @@ async function devolverPartidos(req, res) {
     }
 }
 
-async function insertarPartido(req, res) {
+const insertarPartido = async(req, res) => {
     try {
-      await insertar(req)
+      await insertar(req.body)
       res.status(200).send({message: "send"})
       logger.info(`Se inserto un partido correctamente`)
     } catch (error) {
@@ -23,7 +33,7 @@ async function insertarPartido(req, res) {
     }
 }
 
-async function buscarEstado(req, res) {
+const buscarEstado = async(req, res) => {
     try {
         const {estado} = req.params;
         const partidos = await Estado(estado)
@@ -35,7 +45,7 @@ async function buscarEstado(req, res) {
       }
 }
 
-async function buscarLocal(req, res) {
+const buscarLocal = async(req, res) => {
     try {
         const {equipo} = req.params;
         const partidos = await local(equipo)
@@ -47,7 +57,7 @@ async function buscarLocal(req, res) {
       }
 }
 
-async function buscarVisitante(req, res) {
+const buscarVisitante = async(req, res) => {
     try {
         const {equipo} = req.params;
         const partidos = await visitante(equipo)
@@ -59,7 +69,7 @@ async function buscarVisitante(req, res) {
       }
 }
 
-async function buscarEquipo(req, res) {
+const buscarEquipo = async(req, res) => {
     try {
         const {equipo} = req.params;
         const partidos = await Equipo(equipo)
@@ -71,11 +81,42 @@ async function buscarEquipo(req, res) {
       }
 }
 
+const update = async(req, res) => {
+  const {id} = req.params;
+  let  updatedMatch = await getPartidoById(id);
+  if(updatedMatch.estado == "Jugando" || updatedMatch.estado == "Proximamente" ){
+
+      let acontecimientos = updatedMatch.acontecimientos;
+      if(req.body.acontecimientos != null){
+          const savedacon =  await createAcon(req.body.acontecimientos)
+          acontecimientos = acontecimientos.concat(savedacon._id)
+          
+      }   
+      let cambios = await updatedMatch.cambios;
+      if(req.body.cambios != null){
+          const nuevocambios = await createCambio(req.body.cambios)
+          cambios =  cambios.concat(nuevocambios._id)
+      }
+      await actualizar(id,req.body,cambios,acontecimientos);
+      updatedMatch = await getPartidoByIdPop(id);
+      logger.info(`Partido actualizado`)
+      
+      return res.status(200).json(updatedMatch);
+
+  }else{
+      res.send({message: "no se pudo actualizar"})
+   
+      logger.error(`No se pudo actualizar`)
+  }
+}
+
+
 module.exports = {
     devolverPartidos,
     insertarPartido,
     buscarEstado,
     buscarLocal,
     buscarVisitante,
-    buscarEquipo
+    buscarEquipo,
+    update
   }
