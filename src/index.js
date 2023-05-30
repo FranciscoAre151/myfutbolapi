@@ -25,5 +25,4 @@ if (process.env.NODE_ENV === 'test'){
 
 const server = app.listen(port,() => logger.info(`server listening on port ${port}`));
 
-
 module.exports = {app , server};
