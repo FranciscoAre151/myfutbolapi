@@ -3,3 +3,6 @@ logs
 .env
 lib
 
+dbconfig.js
+
+mongo.js
