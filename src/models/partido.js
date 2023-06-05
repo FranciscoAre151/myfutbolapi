@@ -2,14 +2,8 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const partidoSchema = new mongoose.Schema({
-  local:{
-    type: String,
-    required: true
-   },
-   visitante: {
-    type: String,
-    required: true
-   },
+  local: {type: mongoose.Schema.Types.ObjectId, ref:'Equipo'},
+  visitante:  {type: mongoose.Schema.Types.ObjectId, ref:'Equipo'},
   resultado: {
      type: String
   },
