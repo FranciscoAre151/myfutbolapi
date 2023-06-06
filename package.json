@@ -32,6 +32,6 @@
     "startNodemon": "nodemon --watch src --exec npm run restart",
     "restart": "npm run build && npm run start",
     "start": "cross-env NODE_ENV=dev node lib/index.js --exec",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --silent --verbose lib/tests/update.test.js"
+    "test": "cross-env NODE_ENV=test jest --silent --verbose lib/tests/partidos.test.js"
   }
 }

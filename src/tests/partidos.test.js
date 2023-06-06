@@ -32,7 +32,7 @@ beforeAll(async ()=> {
     .send(inicialPart[1])
 })
 
-test.skip('partidos son json', async () => {
+test('partidos son json', async () => {
     await api 
         .get('/api/partidos/')
         .expect(200)
@@ -45,17 +45,17 @@ test('hay 2 partidos', async () => {
         
 })
 
-test.skip('un partido jugando', async () => {
+test('un partido jugando', async () => {
     const res = await api.get('/api/partidos/Jugando')
     expect(res.body[0].estado).toBe('Jugando')
 })
 
-test.skip('ningun partido proximamente', async () => {
+test('ningun partido proximamente', async () => {
     const res = await api.get('/api/partidos/Proximamente')
     expect(res.body).toHaveLength(0)
 })
 
-test.skip('un partido terminado', async () => {
+test('un partido terminado', async () => {
     const res = await api.get('/api/partidos/Terminado')
     expect(res.body).toHaveLength(1)
 })
@@ -75,7 +75,7 @@ test('Independiente visitante', async () => {
     expect(res.body).toHaveLength(1)
 })
 
-test.skip('Velez no jugo ningun partido', async () => {
+test('Velez no jugo ningun partido', async () => {
     const res = await api.get('/api/partidos/equipo/Velez')
     expect(res.body).toHaveLength(0)
 })

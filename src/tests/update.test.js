@@ -24,7 +24,7 @@ test('Actualizar partido correctamente', async () => {
 },10000)
 
 
-test.skip('No Actualizar partido terminado', async () => {
+test('No Actualizar partido terminado', async () => {
     
     const act = {
         "resultado": "2-0"
@@ -43,7 +43,7 @@ test.skip('No Actualizar partido terminado', async () => {
 })
 
 
-test.skip('Token no valido', async () => {
+test('Token no valido', async () => {
     
     const act = {
         "resultado": "2-0"

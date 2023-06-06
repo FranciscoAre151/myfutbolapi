@@ -9,10 +9,6 @@ const cambiosSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    minuto: {
-      type: Number,
-      required: true
-    } ,
     equipo: {
       type: String
     },
