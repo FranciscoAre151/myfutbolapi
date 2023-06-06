@@ -8,7 +8,8 @@ import {instanceAcon,
         instanceEstado,
         instanceLocal,
         instanceVisitante,
-        instanceEquipo
+        instanceEquipo,
+        instanceCrearEquipo
         } from './partidos.js'
         
 import {instanceGetUser,instanceGetUsers,instanceCrearUsers,instanceEmail} from './user.js'
@@ -17,12 +18,20 @@ import userSchema from '../models/user';
 import partidoSchema from '../models/partido';
 import aconSchema from '../models/acontecimiento';
 import cambiosSchema from '../models/cambios';
+import equipoSchema from '../models/equipo.js';
 
 const getUser = instanceGetUser({
     dependencies: {
         model: userSchema
     }
 })
+
+const createEquipo = instanceCrearEquipo({
+    dependencies: {
+        model: equipoSchema
+    }
+})
+
 
 const  getUsuarios = instanceGetUsers({
     dependencies: {
@@ -92,19 +101,22 @@ const Estado = instanceEstado({
 
 const local  = instanceLocal({
     dependencies: {
-        model: partidoSchema
+        partidoModel: partidoSchema,
+        equipoModel: equipoSchema
     }
 })
 
 const visitante= instanceVisitante({
     dependencies: {
-        model: partidoSchema
+        partidoModel: partidoSchema,
+        equipoModel: equipoSchema
     }
 })
 
 const Equipo  = instanceEquipo({
     dependencies: {
-        model: partidoSchema
+        partidoModel: partidoSchema,
+        equipoModel: equipoSchema
     }
 })
 
@@ -123,5 +135,6 @@ module.exports = {
     getPartidoById,
     getPartidoByIdPop,
     createAcon,
-    createCambio
+    createCambio,
+    createEquipo
 }

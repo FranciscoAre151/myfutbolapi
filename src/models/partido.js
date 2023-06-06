@@ -13,7 +13,11 @@ const partidoSchema = new mongoose.Schema({
   },
   acontecimientos:[ {type: mongoose.Schema.Types.ObjectId, ref:'Acontecimientos'}],
   cambios:[{ type: Schema.Types.ObjectId, ref: 'Cambios' }]
-});
+},
+{
+  timestamps: true, 
+}
+);
 
 
 module.exports = mongoose.model('partido', partidoSchema);

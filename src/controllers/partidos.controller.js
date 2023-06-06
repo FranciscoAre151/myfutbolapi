@@ -9,7 +9,9 @@ import {getPartidos,
         createAcon,
         createCambio,
         getPartidoByIdPop,
-        actualizar} from '../usesCases/index.js';
+        actualizar,
+        createEquipo
+      } from '../usesCases/index.js';
 
 const devolverPartidos = async(req, res) => {
     try {
@@ -24,7 +26,10 @@ const devolverPartidos = async(req, res) => {
 
 const insertarPartido = async(req, res) => {
     try {
-      await insertar(req.body)
+      const localID = await createEquipo(req.body.local)
+      const visID = await createEquipo(req.body.visitante)
+      await insertar(localID._id,visID._id,req.body)
+
       res.status(200).send({message: "send"})
       logger.info(`Se inserto un partido correctamente`)
     } catch (error) {

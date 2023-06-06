@@ -15,7 +15,10 @@ const cambiosSchema = new mongoose.Schema({
     } ,
     equipo: {
       type: String
-    } 
+    },
+    ocurredAt: {
+      type: Date
+    }
   });
   
   module.exports = mongoose.model('Cambios', cambiosSchema);
