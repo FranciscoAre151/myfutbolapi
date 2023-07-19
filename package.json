@@ -15,7 +15,7 @@
     "mongo-seeding": "^3.7.2",
     "mongo-seeding-cli": "^3.7.2",
     "mongodb": "^5.5.0",
-    "mongoose": "^7.0.4",
+    "mongoose": "^7.3.3",
     "winston": "^3.8.2"
   },
   "devDependencies": {
